@@ -1,0 +1,743 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="bg-black">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-8 w-auto" src="./img/istockphoto-1371799921-612x612-removebg-preview.png"
+                            alt="ModishWardrobe">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                aria-current="page">Home</a>
+                            <a href=""
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Products</a>
+                            <a href=""
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                            <a href=""
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button"
+                        class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span class="absolute -inset-1.5"></span>
+                        <span class="sr-only">View notifications</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="relative ml-3">
+                        <div>
+                            <button type="button"
+                                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full" src="./img/2040861.jpg" alt="">
+                            </button>
+                        </div>
+
+                        <!--
+                  Dropdown menu, show/hide based on menu state.
+      
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                        <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="user-menu-item-0">Your Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="user-menu-item-1">Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="user-menu-item-2">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    aria-current="page">Dashboard</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+            </div>
+        </div>
+    </nav>
+    <div id="home" class="bg-gray-900">
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#1c3f3f] to-[#4b8b8b] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+                <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+                    <div
+                        class="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-gray-800 hover:ring-gray-700">
+                        Announcing our latest product launch! <a href="#" class="font-semibold text-teal-400"><span
+                                class="absolute inset-0" aria-hidden="true"></span>Shop now <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Discover Amazing Products for Your Needs</h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">Explore our extensive range of products tailored just for you.
+                        Quality items at unbeatable prices await you!</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <a href="#shop"
+                            class="neon-button">Start Shopping</a>
+                        <a href="#about" class="text-sm font-semibold leading-6 text-white">Learn more about us <span
+                                aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#1c3f3f] to-[#4b8b8b] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="products" class="bg-black">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <h2 class="text-2xl font-bold tracking-tight text-white">Customers also purchased</h2>
+
+            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product1.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Short Dress
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Skin</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$4500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product2.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Perfume
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="text-sm font-medium text-white">$340</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product3.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Bag
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">White</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$3200</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product4.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Shoes
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">White</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$5700</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product5.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Lip-gloss
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Orange</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$1400</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product6.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Necklace
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Gold</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$7500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product7.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Makeup
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Kit</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$6730</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product8.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Bag
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Printed-White and Blue</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$2350</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product9.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Sandals
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">White</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$2500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product10.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Coat
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">White</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$2800</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product11.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Watch
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$6000</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product12.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Makeup
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Pallete</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$4500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product20.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Lip-gloss
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$1380</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product13.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Prestige
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$2300</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product14.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Kid-Dress
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$1500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product15.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Earings
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Silver-Gold</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$8500</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product16.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Bag
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Printed-White and Blue</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$3200</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product17.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Kid-Dress
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Blue and Green</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">1390</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product18.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Ring
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Gold</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$5550</p>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <img src="./img/product19.jpg"
+                            alt="Front of men's Basic Tee in black."
+                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-300">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Blush
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-400">Skin</p>
+                        </div>
+                        <p class="text-sm font-medium text-white">$1750</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-between border-t border-gray-700 bg-black px-4 py-3 sm:px-6">
+        <div class="flex flex-1 justify-between sm:hidden">
+            <a href="#"
+                class="neon-button">Previous</a>
+            <a href="#"
+                class="neon-button ml-3">Next</a>
+        </div>
+        <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+            <div>
+                <p class="text-sm text-gray-300">
+                    Showing
+                    <span class="font-medium text-white">1</span>
+                    to
+                    <span class="font-medium text-white">10</span>
+                    of
+                    <span class="font-medium text-white">97</span>
+                    results
+                </p>
+            </div>
+            <div>
+                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                    <a href="#"
+                        class="neon-pagination-button rounded-l-md">
+                        <span class="sr-only">Previous</span>
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-current="page"
+                        class="neon-pagination-button z-10">1</a>
+                    <a href="#"
+                        class="neon-pagination-button">2</a>
+                    <a href="#"
+                        class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-300 ring-1 ring-inset ring-gray-600 hover:bg-gray-700 md:inline-flex neon-pagination-button">3</a>
+                    <span
+                        class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-gray-600">...</span>
+                    <a href="#"
+                        class="neon-pagination-button hidden items-center md:inline-flex">8</a>
+                    <a href="#"
+                        class="neon-pagination-button">9</a>
+                    <a href="#"
+                        class="neon-pagination-button">10</a>
+                    <a href="#"
+                        class="neon-pagination-button rounded-r-md">
+                        <span class="sr-only">Next</span>
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>   
+    <div id="contact" class="isolate bg-black px-6 py-24 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Get in Touch with Our Sales Team</h2>
+            <p class="mt-2 text-lg text-gray-300">Have questions about our products? We're here to help you!</p>
+        </div>
+    
+        <form action="#" method="POST" class="mx-auto mt-16 max-w-xl">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div>
+                    <label for="first-name" class="block text-sm font-semibold text-white">First Name</label>
+                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                        class="mt-2.5 w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm">
+                </div>
+                <div>
+                    <label for="last-name" class="block text-sm font-semibold text-white">Last Name</label>
+                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                        class="mt-2.5 w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm">
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="company" class="block text-sm font-semibold text-white">Company</label>
+                    <input type="text" name="company" id="company" autocomplete="organization"
+                        class="mt-2.5 w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm">
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="email" class="block text-sm font-semibold text-white">Email</label>
+                    <input type="email" name="email" id="email" autocomplete="email"
+                        class="mt-2.5 w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm">
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="phone-number" class="block text-sm font-semibold text-white">Phone Number</label>
+                    <div class="relative mt-2.5">
+                        <input type="tel" name="phone-number" id="phone-number" autocomplete="tel"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10">
+                <button type="submit"
+                    class="neon-button w-full rounded-md px-3.5 py-2.5 text-sm font-semibold text-white">Submit</button>
+            </div>
+        </form>
+    </div>
+    <section id="about" class="bg-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Company Information -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">About Our E-Commerce Store</h2>
+                    <p class="text-gray-300 mb-6">
+                        At [ModishWardrobe Name], we are passionate about providing our customers with an exceptional online shopping experience. Our extensive range of high-quality products is carefully curated to meet the diverse needs of our valued customers.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        We believe in the power of innovation and strive to bring you the latest trends and products at competitive prices. Our team is dedicated to ensuring that every purchase is seamless, from browsing to checkout.
+                    </p>
+                    <p class="text-gray-300">
+                        Our mission is to empower you with the best products and unparalleled customer service. We are here to support you every step of the way, ensuring your satisfaction is our top priority.
+                    </p>
+                </div>
+    
+                <!-- Company Image or Graphic -->
+                <div>
+                    <img class="w-full rounded-lg"
+                        src="./img/istockphoto-1371799921-612x612-removebg-preview.png"
+                        alt="About our company">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-black text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center flex-wrap">
+                <!-- Logo or Company name -->
+                <div class="text-xl font-bold">
+                    <a href="#" class="text-white hover:text-gray-300">ModishWardrobe</a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-gray-300">About</a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Services</a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M22.675 0h-21.35c-.73 0-1.325.596-1.325 1.325v21.351c0 .729.595 1.324 1.325 1.324h21.351c.73 0 1.324-.595 1.324-1.325v-21.351c0-.729-.594-1.325-1.324-1.325zm-13.186 19.733h-3.77v-9.486h3.77v9.486zm-1.885-10.804c-1.211 0-2.194-.986-2.194-2.195 0-1.211.983-2.196 2.194-2.196 1.21 0 2.194.985 2.194 2.196s-.984 2.195-2.194 2.195zm13.186 10.804h-3.77v-5.127c0-1.222-.024-2.797-1.705-2.797-1.707 0-1.968 1.334-1.968 2.71v5.214h-3.77v-9.486h3.617v1.296h.052c.504-.954 1.734-1.962 3.57-1.962 3.822 0 4.526 2.515 4.526 5.785v5.367z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 4.557c-.883.392-1.833.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.723-.951.564-2.005.974-3.127 1.194-.897-.955-2.178-1.555-3.594-1.555-2.72 0-4.924 2.203-4.924 4.924 0 .386.044.762.127 1.124-4.09-.205-7.719-2.164-10.148-5.144-.424.727-.667 1.572-.667 2.475 0 1.707.87 3.216 2.191 4.099-.807-.026-1.566-.247-2.228-.617v.062c0 2.385 1.694 4.374 3.946 4.827-.413.111-.848.171-1.296.171-.317 0-.626-.03-.928-.086.627 1.955 2.444 3.379 4.6 3.42-1.68 1.318-3.8 2.104-6.102 2.104-.396 0-.788-.023-1.175-.069 2.179 1.396 4.768 2.212 7.557 2.212 9.054 0 14.004-7.504 14.004-14.004 0-.213-.005-.426-.014-.637.961-.695 1.794-1.562 2.453-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.992 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.64c0-3.008 1.79-4.665 4.533-4.665 1.313 0 2.686.235 2.686.235v2.957h-1.512c-1.491 0-1.952.926-1.952 1.877v2.236h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.861 10.125-11.854z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2024 ModishWardrobe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
